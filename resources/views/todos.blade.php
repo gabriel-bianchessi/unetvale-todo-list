@@ -12,8 +12,8 @@
 <body>
     <div class="container flex gap-4">
         {{-- @yield('content') --}}
-        <h1 class="pt-4">My To-Do's</h1>
-        <table class="table">
+        <h1 class="p-4 shadow rounded mt-4">My To-Do's</h1>
+        <table class="table rounded shadow">
             <thead>
                 <tr>
                     <th scope="col">#</th>
