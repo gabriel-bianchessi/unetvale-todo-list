@@ -4,10 +4,10 @@
         <td>
             @if ($completed)
                 <input class="form-check-input" id="completed" type="checkbox" wire:model="completed"
-                    wire:change="save({{ $id }})" checked>
+                    wire:change="save()" checked>
             @else
                 <input class="form-check-input" id="completed" type="checkbox" wire:model="completed"
-                    wire:change="save({{ $id }})">
+                    wire:change="save()">
             @endif
         </td>
         <td>{{ $name }}</td>
