@@ -2,13 +2,13 @@
     <tr>
         <th scope="row">{{ $id }}</th>
         <td>
-            <form wire:submit="save()">
-                <button class="bg-transparent border-none border-0 outline-none" type="submit">
-                    <input id="{{ $id }}" class="form-check-input" type="checkbox" wire:model="completed"
-                        @if ($completed) checked @endif
-                    />
-                </button>
-            </form>
+            @if ($completed)
+                <input class="form-check-input" id="completed" type="checkbox" wire:model="completed"
+                    wire:change="save({{ $id }})" checked>
+            @else
+                <input class="form-check-input" id="completed" type="checkbox" wire:model="completed"
+                    wire:change="save({{ $id }})">
+            @endif
         </td>
         <td>{{ $name }}</td>
     </tr>

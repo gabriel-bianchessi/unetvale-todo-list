@@ -7,31 +7,28 @@ use Livewire\Component;
 
 class TableItem extends Component
 {
-    public $id, $name, $completed;
+    public Todo $todo;
 
     public function save()
     {
-        var_dump($this->name);
-        $todo = Todo::find($this->id);
+        $todoUpdate = Todo::find($this->todo->id);
 
-        $todo->completed = !$this->completed;
+        $todoUpdate->completed = !$this->completed;
 
-        $todo->save();
+        $todoUpdate->save();
     }
 
-    public function mount($todo)
+    public function mount(Todo $todo)
     {
-        $this->id = $todo->id;
-        $this->name = $todo->name;
-        $this->completed = $todo->completed;
+        $this->todo = $todo;
     }
 
     public function render()
     {
         return view('livewire.table-item')->with([
-            'id' => $this->id,
-            'name' => $this->name,
-            'completed' => $this->completed,
+            'id' => $this->todo->id,
+            'name' => $this->todo->name,
+            'completed' => $this->todo->completed,
         ]);
     }
 }
